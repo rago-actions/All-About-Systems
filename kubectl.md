@@ -52,21 +52,141 @@
 | List service endpoints | ```kubectl get endpoints``` |
 | Describe pod | ``` kubectl describe pod <podname>``` |
 ### Object Operations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+| Validate YAML file with dry run |  ```kubectl create --dry-run --validate -f pod.yaml``` |
+| Open a shell terminal in a pod with single container  | ```kubectl exec -it <podname> sh```  |
+| Scaling the deployment to 3 replicas  | ```kubectl scale --replicas=3 deploy/<deploymentname>```  |
+| Set the resource limit |  ```kubectl set resources deployment nginx -c=nginx --limits=cpu=200m,memory=512Mi``` |
+| Updating the image, rollingupdate "wwww" containers of "frontend" deployment  | ```kubectl set image deploy/frontend www=image:V2```  |
+| Rollback to the previous deployment  | ```kubectl rollout undo deploy/<deploymentname>```  |
+| Watch rolling update status of "frontend" deployment until completion  | ```kubectl rollout status -w deploy/frontend```  |
+| force, replace, delete and the recreate the resource  | ```kubectl kubectl replace --force -f pod.yaml```  |
+| Start a temporary pod for testing  | ```kubectl run --rm -i -t  --image=alpine test --sh```  |
+| Dump pod logs  | ```kubectl logs pods/<podname>```  |
+| Dump pod container logs | ```kubectl logs po/<podname> -c <containername/id>```  |
+| Stream pod logs  | ```kubectl logs -f po/<podname>```  |
+| Stream pod container logs  |  ```kubectl logs -f po/<podname> -c <containername/id>``` |
+| Show metrics for a given pod and its containers  | ```kubectl top pod <podname> --containers``` |
 ### Context Operations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### Network Operations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### Delete Operations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### Configmaps & Secrets
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### Labels & Annotations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### API Extensions
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 ### Volume Operations
-<comingup-soon>
+| Description   | Command  |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
+|   |   |
 
 
 
