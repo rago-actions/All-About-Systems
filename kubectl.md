@@ -71,122 +71,55 @@
 ### Context Operations
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| List contexts  | ```kubectl config get-contexts``` |
+| Switch context  | ```kubectl config use-context <context-name>```  |
+| Add a new cluster(cy) to your kubeconfig that supports basic auth  | ```kubectl config set-credentials kubeuser/cy.kuberenetes.com --username=kubeuser --password=kubepassword```  |
+| Set a context(cy) utilizing a specific username and Namespace  | ```kubectl config set-context cy --user=cluster-admin --namespace=cyns && kubectl config use-context cyns```  |
 ### Network Operations
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| Temporarily add a port-forwarding   | ```kubectl port-forward <podname> <portnumber>```  |
+| Add port-forwarding for deployment  | ```kubectl port-forward deployment <deployname> <port>:<port>``` |
+| Add port-forwarding for service   | ```kubectl port-forward svc <svcname> <port>:<port>```  |
+| Get NetworkPolicy  | ```kubectl get NetworkPolicy```  |
+| Create a service object that exposes the deployment  | ```kubectl expose deployment <deployname> --type=<service-type> --name=<svc-name>``` |
 ### Delete Operations
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| Delete Pod forcefully  | ```kubectl delete pod grace-test --force --grace-period=0```   |
+| Delete a pod using the type and name specified in pod.json  | ```kubectl delete -f ./pod.json```  |
+| Delete pods and services with names "bar" and "foo"  | ```kubectl delete pod,svc bar foo```  |
+| Delete pods and services with label 'name=label'   | ```kubectl delete pods,services -l name=label```  |
+| Delete pods and services running with label 'name=label' also including unintialized ones | ```kubectl delete pods,services -l name=label --include=unintializedones``` |
+| Delete all pods inclusing unintializedones, in namespace my-ns  | ```kubectl -n my-ns delete po --all```  |
 ### Configmaps & Secrets
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| Create config map from both configuration file and variable  | ```kubectl create cm <configmapname> --from-file=<file-name> --from-literal=app=frontend```  |
+| Create secret to store TLS key and certificate  | ```kubectl create secret generic <secretname> --from-file=ca.crt --from-file=ca.key```  |
+| Create image pull secret for docker registry | ```kubectl create secret docker-registry myregistrykey --docker-server=$DOCKER_REGISTRY_SERVER --docker--username=$DOCKER_USER --docker-password=$DOCKER_PASSWORD --docker-email=$DOCKER_EMAIL```  |
 ### Labels & Annotations
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| Filter pods by label  | ```kubectl get pods -l app=run```  |
+| Manually add label to a pod  | ```kubectl label pods <podname> app=run```  |
+| remove label  | ```kubectl label pods <podname> app-```  |
+| Manually add annotation to a pod  | ```kubectl annotate pods <podname> my-url=https://<url>```  |
 ### API Extensions
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| List API extesnions  |  ```kubectl api-versions``` |
+| List all CRD  | ```kubectl get crd```  |
+| List al supported resources  | ```kubectl api-resources```  |
 ### Volume Operations
 | Description   | Command  |
 |---|---|
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
-|   |   |
+| List storage class  | ```kubectl get sc```  |
+| Check persistent volume  | ```kubectl decribe pv <pv-name>```  |
+| Check persistent volume claim | ```kubectl describe pvc <pvc-name>```  |
+| Copy local file to pod  | ```kubectl cp </path/to/file> <ns-name>/<po-name>:/tmp/data```  |
+| Copy pod file to local |  ```kubectl cp <ns-name>/<po-name>:/tmp/data /tmp/mydata```|
+
 
 
 
